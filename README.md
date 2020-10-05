@@ -81,6 +81,10 @@ This will flash the device, reset it and send `rprintln!` debug messages from th
 
 Here follows a brief description of each demo for quick reference. For a more in-depth explanation on how the peripherals work please refer to the device reference manuals above and the comments in the demo code itself.
 
+### blinky-button-demo (Hello World)
+
+The blinky button demo. This demonstrates a simple hello world blinky application targeted at the nrf52832 chip. Note that this has a different hardware abstraction layer to the nRD52840-DK board so you can expect to find different pins for the led and button. It is a useful exercise to experiment with what you need to change to get the same functionality working on the nrf52840 chip as this project does not use features to support multiple chips. This demo also introduces the cargo-embed tool which is an alternative to probe-run but part of the same family.
+
 ### ccm-demo (Encryption)
 
 The cipher block chaining - message authentication code (CCM) mode demo. This demo initialises a text message of the maximum size of 251 bytes and encrypts and decrypts it, measuring the time it takes. It then repeats the process with smaller and smaller chunks of data to demonstrate how long smaller packets take to process.
