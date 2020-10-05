@@ -54,7 +54,7 @@ dual licensed as above, without any additional terms or conditions.
 
 ## Running the Demos
 
-All the demos can be found in the examples folder and are completely independent cargo projects. Therefore running something like "cargo run --bin ccm-demo" from the root of this repo (`./nrf-hal/`) will not work. You need to run your cargo commands from something like this `./nrf-hal/examples/ccm-demo/`. There are many ways to flash the demos to your device and debug them and this repository does not force you to make a choice. However, if you are struggling to get things working then hopefully this explanation of getting the demos to work on the nRF52840-DK using probe-rs will help. 
+All the demos can be found in the examples folder and are completely independent cargo projects. Therefore running something like `cargo run --bin ccm-demo` from the root of this repo (`./nrf-hal/`) *will not work*. You need to run your cargo commands from something like this `./nrf-hal/examples/ccm-demo/`. There are many ways to flash the demos to your device and debug them and this repository does not force you to make a choice. However, if you are struggling to get things working then hopefully this explanation of getting the demos to work on the nRF52840-DK using probe-rs will help. 
 
 Once off system setup:
 Install a target for your device for cross compilation. `rustup target add thumbv7em-none-eabihf`
@@ -140,4 +140,4 @@ I2C compatible Two-Wire Interface Slave mode demo. This demo uses the twis perip
 
 ### wdt-demo (Timer)
 
-Watchdog timer demo. This demonstrates the how the entire device can be set to automatically reset if certain conditions are not met within a certain period of time. In this case you have to press all 4 buttons at least once within a 5 second period to prevent a reset. If you mash the buttons for a while the you will encounter an 'attempt to subtract with overflow' panic at `main.rs:205` which is ultimately cleared by the watchdog timer. This is intended demo behaviour ;)
+Watchdog timer demo. This demonstrates the how the entire device can be set to automatically reset if certain conditions are not met within a certain period of time. In this case you have to press all 4 buttons at least once within a 5 second period to prevent a reset. If you mash the buttons for a while you will encounter an 'attempt to subtract with overflow' panic at `main.rs:205` which is ultimately cleared by the watchdog timer. This is intended demo behaviour ;)
