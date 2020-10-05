@@ -78,66 +78,66 @@ This will flash the device, reset it and send `rprintln!` debug messages from th
 
 Here follows a brief description of each demo for quick reference. For a more in-depth explanation on how the peripherals work please refer to the device reference manuals above and the comments in the demo code itself.
 
-# ccm-demo (Encryption)
+### ccm-demo (Encryption)
 
 The cipher block chaining - message authentication code (CCM) mode demo. This demo initialises a text message of the maximum size of 251 bytes and encrypts and decrypts it, measuring the time it takes. It then repeats the process with smaller and smaller chunks of data to demonstrate how long smaller packets take to process.
 
-# comp-demo (Analog Pins)
+### comp-demo (Analog Pins)
 
 The comparator peripheral demo. This demo uses the comp peripheral to compare the differential voltages between two pins. If the voltage on Pin 30 is higher than Pin 31 (reference voltage) the built in LED will switch off otherwise it will switch on.
 
-# ecb-demo (Encryption)
+### ecb-demo (Encryption)
 
 The AES electronic codebook mode encryption demo. Blocking 128-bit AES encryption of 16 bytes of data using a 16 byte key. Encryption only, no decryption.
 
-# gpiote-demo (Digital Pins)
+### gpiote-demo (Digital Pins)
 
 The General-Purpose Input Output Tasks and Events module demo. This demo targets the nRF52840-DK in particular because of the 4 available hardware buttons on the board itself. The demo shows how you can use the `cortex-m-rtic` crate to easily debounce some buttons without blocking the cpu. GPIO pin state changes fire events which can be used to carry out tasks. This showcases the PPI (programmable peripheral interconnect) system for which there is also a dedicated demo.
 
-# i2s-controller-demo (Audio)
+### i2s-controller-demo (Audio)
 
 The Inter-IC Sound interface 'controller mode (aka master mode)' demo. This demo generates Morse code audio signals for text from UART and plays them back over I2S. Tested with nRF52840-DK and a UDA1334a DAC. 
 
-# i2s-peripheral-demo (Audio)
+### i2s-peripheral-demo (Audio)
 
 The Inter-IC Sound interface 'peripheral mode (aka slave mode)' demo. This demonstrates full duplex communication between a controller and peripheral mode i2s peripheral using the EasyDMA capabilities of the chip. 
 
-# lpcomp-demo (Analog Pins)
+### lpcomp-demo (Analog Pins)
 
 The low power comparator demo. This demo shows how you would keep the device in low power mode and power it up when an analog voltage on a pin changes with respect to a voltage on a reference pin.
 
-# ppi-demo (Channels)
+### ppi-demo (Channels)
 
 The programmable peripheral interconnect (PPI) demo. The PPI allows peripherals to interact with each other without having to go through the CPU. Note that you need to choose a default feature in order for this demo to build. See above. This demo uses the Bluetooth RADIO peripheral as an example but does nothing special with Bluetooth itself so this is not the demo to learn about that capability.
 
-# pwm-demo (Digital Pins)
+### pwm-demo (Digital Pins)
 
 The pulse width modulation demo. This demonstrates various PWM use cases by allowing the user to press buttons to change demo modes. This outputs PWM signals to the built in LEDs on the nRF52840-DK.
 
-# qdec-demo (Sensor Decoding)
+### qdec-demo (Sensor Decoding)
 
 The quadrature decoder (QDEC) demo. This peripheral supports buffered decoding of quadrature-encoded sensor signals (typically used for mechanical and optical sensors). The demo reads a byte value from two input pins expected to contain qdec encoded data at a given frequency.
 
-# rtic-demo (Concurrency Framework)
+### rtic-demo (Concurrency Framework)
 
 The Real-Time Interrupt-driven Concurrency framework demo. Many of the demos in this project use RTIC and demonstrate its capabilities in more detail but this is a bare-bones default template for you to build off. RTIC is not unique to the nRF series but very useful for a chip that requires concurrency. Unfortunately, this demo does not appear to use rtt for logging so it crashes when used with probe-run. However, it will work with other debuggers. See other demos for rtt logging setup.
 
-# spi-demo (Digital Pins)
+### spi-demo (Digital Pins)
 
 The serial peripheral interface master (SPIM) with EasyDMA demo. Sends some text out on the spi peripheral and loops it back on itself to demonstrate full duplex direct-memory-access based SPI data transfer. You'll need a resistor to connect the output to the input. 
 
-# twi-ssd1306 (Digital Pins)
+### twi-ssd1306 (Digital Pins)
 
 I2C compatible Two-Wire Interface with the SSD1306 OLED Display demo. This demo uses the twim (Two-Wire Interface Master) peripheral along with the embedded_graphics library to draw "Hello Rust!" to an OLED screen. Note that you need to set a default feature to get this to compile (see "Running the demos" section).
 
-# twim-demo (Digital Pins)
+### twim-demo (Digital Pins)
 
 I2C compatible Two-Wire Interface Master mode demo. This demo uses the twim peripheral to read and write 8 bytes of data to arbitrary addresses on whatever device is connected to the I2C pins p0_30 and p0_31. It demonstrates error handling if the device does not respond properly (or it is not connected).
 
-# twis-demo (Digital Pins)
+### twis-demo (Digital Pins)
 
 I2C compatible Two-Wire Interface Slave mode demo. This demo uses the twis peripheral with rtic to listen for I2C signals which are exposed as events. The event handler reads data from the peripheral at the address specified.
 
-# wdt-demo (Timer)
+### wdt-demo (Timer)
 
 Watchdog timer demo. This demonstrates the how the entire device can be set to automatically reset if certain conditions are not met within a certain period of time. In this case you have to press all 4 buttons at least once within a 5 second period to prevent a reset. If you mash the buttons for a while the you will encounter an 'attempt to subtract with overflow' panic at `main.rs:205` which is ultimately cleared by the watchdog timer. This is intended demo behaviour ;)
