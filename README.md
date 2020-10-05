@@ -57,8 +57,11 @@ dual licensed as above, without any additional terms or conditions.
 All the demos can be found in the examples folder and are completely independent cargo projects. Therefore running something like `cargo run --bin ccm-demo` from the root of this repo (`./nrf-hal/`) *will not work*. You need to run your cargo commands from something like this `./nrf-hal/examples/ccm-demo/`. There are many ways to flash the demos to your device and debug them and this repository does not force you to make a choice. However, if you are struggling to get things working then hopefully this explanation of getting the demos to work on the nRF52840-DK using probe-rs will help. 
 
 Once off system setup:
-Install a target for your device for cross compilation. `rustup target add thumbv7em-none-eabihf`
-Install a mechanism to flash to your device. `cargo install probe-run`
+Install a target for your device for cross compilation as well as a mechanism to flash to your device.
+```
+rustup target add thumbv7em-none-eabihf
+cargo install probe-run
+```
 
 For every project:
 Setup your .cargo/config file (create one in your demo project root if it does not exist. e.g. `./nrf-hal/examples/ccm-demo/.cargo/config`). This will call the prope-run executable configured for the nrf52840 chip when you call `cargo run`. Here is an example `.cargo/config` file:
